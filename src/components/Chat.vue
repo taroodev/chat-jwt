@@ -162,7 +162,7 @@ export default {
         console.log('Enviando datos de login:', { user_id: userId, raw_token: rawToken });
 
         // Cambiar esta URL por la de tu backend de autenticación
-        const response = await fetch('http://127.0.0.1:8000/login', {
+        const response = await fetch('https://lang-graph.onrender.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -326,7 +326,7 @@ export default {
         console.log('Enviando mensaje:', { message: texto, user_id: currentUserId });
         
         // Cambiar esta URL por la de tu backend de chat
-        const res = await fetch('http://127.0.0.1:8000/chat', {
+        const res = await fetch('https://lang-graph.onrender.com/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
