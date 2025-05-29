@@ -119,7 +119,8 @@ export default {
       return p;
     };
 
-  const micBusy = (busy) => {
+  
+    const micBusy = (busy) => {
       mic.disabled = busy;
       if (busy) {
         mic.innerHTML = '<span class="voice-spinner"></span>';
