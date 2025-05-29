@@ -1,4 +1,3 @@
-
 <template>
     <div id="voice-widget">
       <button id="toggleWidget" class="widget-fab" aria-label="Abrir chat">
@@ -60,6 +59,9 @@
 </template>
 
 <script>
+import microIcon from '../assets/micro.png';
+import sendIcon from '../assets/send.png';
+
 export default {
   name: 'VoiceChatWidget',
   mounted() {
@@ -119,13 +121,16 @@ export default {
       return p;
     };
 
-  
+    // Reemplazar las imágenes de los botones por referencias importadas
+    send.innerHTML = `<img src="${sendIcon}" alt="Enviar" class="ctrl-icon" />`;
+    mic.innerHTML = `<img src="${microIcon}" alt="Hablar" class="ctrl-icon" />`;
+
     const micBusy = (busy) => {
       mic.disabled = busy;
       if (busy) {
         mic.innerHTML = '<span class="voice-spinner"></span>';
       } else {
-        mic.innerHTML = '<img src="/src/assets/micro.png" alt="Hablar" class="ctrl-icon" />';
+        mic.innerHTML = `<img src="${microIcon}" alt="Hablar" class="ctrl-icon" />`;
       }
     };
 
@@ -783,6 +788,15 @@ export default {
 
 .hidden { 
   display: none !important; 
+}
+
+.ctrl-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 @media (max-width: 480px) {
