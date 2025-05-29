@@ -33,7 +33,9 @@
             <h2>Agente ClassRoom</h2>
             <div class="header-actions">
               <span id="userInfo" class="user-info"></span>
-              <button id="logoutBtn" class="logout-btn" title="Cerrar sesión">🚪</button>
+              <button id="logoutBtn" class="logout-btn" title="Cerrar sesión">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/logout-rounded-left.png" alt="Cerrar sesión" class="logout-icon" />
+              </button>
               <button id="closeWidgetChat" aria-label="Cerrar chat">✖</button>
             </div>
           </div>
@@ -45,8 +47,12 @@
           </div>
           <div class="chat-controls">
             <input id="textoInput" type="text" placeholder="Escribe tu mensaje…" autocomplete="off" />
-            <button id="btnEnviar" class="ctrl-btn" aria-label="Enviar">⇪</button>
-            <button id="btnHablar" class="ctrl-btn" aria-label="Hablar">🎙️</button>
+            <button id="btnEnviar" class="ctrl-btn" aria-label="Enviar">
+              <img src="/src/assets/send.png" alt="Enviar" class="ctrl-icon" />
+            </button>
+            <button id="btnHablar" class="ctrl-btn" aria-label="Hablar">
+              <img src="/src/assets/micro.png" alt="Hablar" class="ctrl-icon" />
+            </button>
           </div>
         </div>
       </div>
@@ -113,9 +119,13 @@ export default {
       return p;
     };
 
-    const micBusy = (busy) => {
+  const micBusy = (busy) => {
       mic.disabled = busy;
-      mic.innerHTML = busy ? '<span class="voice-spinner"></span>' : '🎤';
+      if (busy) {
+        mic.innerHTML = '<span class="voice-spinner"></span>';
+      } else {
+        mic.innerHTML = '<img src="/src/assets/micro.png" alt="Hablar" class="ctrl-icon" />';
+      }
     };
 
     const hideSug = () => {
@@ -462,6 +472,15 @@ export default {
   background: #1e1e1e;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   isolation: isolate;
+}
+
+
+.logout-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
 }
 
 .chat-panel::before {
