@@ -3,7 +3,7 @@
     <div id="voice-widget">
       <button id="toggleWidget" class="widget-fab" aria-label="Abrir chat">
         <i class="fa-solid fa-comment-dots"></i>
-        <span class="fab-text">Chat</span>
+        <span class="fab-text">Agent</span>
       </button>
       
       <div id="chatPanel" class="chat-panel hidden" aria-label="Panel de chat">
@@ -15,11 +15,11 @@
           </div>
           <div class="login-form">
             <div class="form-group">
-              <label for="userId">ID de Usuario:</label>
+              <label for="userId">Usuario:</label>
               <input id="userId" type="text" placeholder="Ingresa tu ID de usuario" />
             </div>
             <div class="form-group">
-              <label for="rawToken">Token:</label>
+              <label for="rawToken">contraseña:</label>
               <input id="rawToken" type="password" placeholder="Ingresa tu token" />
             </div>
             <button id="loginBtn" class="login-btn">Iniciar Sesión</button>
@@ -41,7 +41,7 @@
           <div id="suggestions" class="suggestions">
             <button class="suggest-btn">¿Necesitas información sobre los cursos?</button>
             <button class="suggest-btn">¿Quieres información tus datos academicos?</button>
-            <button class="suggest-btn">Tengo otra consulta</button>
+            <button class="suggest-btn">Estado de titulo</button>
           </div>
           <div class="chat-controls">
             <input id="textoInput" type="text" placeholder="Escribe tu mensaje…" autocomplete="off" />
@@ -221,7 +221,7 @@ export default {
         userInfo.textContent = `Usuario: ${userId}`;
         
         // Mensaje de bienvenida
-        addMsg(`Soporte: ¡Hola! ${userId} Has iniciado sesión correctamente. ¿En qué puedo ayudarte?`, 'bot-msg');
+        addMsg(`Secretaria: ¡Hola! ${userId} Has iniciado sesión correctamente. ¿En qué puedo ayudarte?`, 'bot-msg');
         input.focus();
 
         console.log('Login exitoso, token recibido:', jwtToken.substring(0, 20) + '...');
@@ -319,7 +319,7 @@ export default {
       
       addMsg(`Tú: "${texto}"`, 'user-msg');
       input.value = '';
-      typing = addMsg('Soporte está escribiendo…', 'bot-msg');
+      typing = addMsg('Secretaria está escribiendo…', 'bot-msg');
       hideSug();
       
       try {
@@ -374,7 +374,7 @@ export default {
         }
         
         const respuesta = data.reply || data.respuesta || data.response || data.message || 'Sin respuesta del servidor';
-    typing.textContent = `Soporte: "${respuesta}"`;
+    typing.textContent = `Secretaria: "${respuesta}"`;
         
       } catch (err) {
         console.error('Error en sendText:', err);
