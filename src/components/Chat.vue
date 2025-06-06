@@ -342,7 +342,7 @@ export default {
         console.log('Enviando mensaje:', { message: texto, user_id: currentUserId });
         
         // Cambiar esta URL por la de tu backend de chat
-        const res = await fetch('https://lang-graph.onrender.com/chat', {
+        const res = await fetch('https://crm-agent.onrender.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
