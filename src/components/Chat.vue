@@ -178,7 +178,7 @@ export default {
         console.log('Enviando datos de login:', { user_id: userId, raw_token: rawToken });
 
         // Cambiar esta URL por la de tu backend de autenticación
-        const response = await fetch('https://lang-graph.onrender.com/login', {
+        const response = await fetch('https://new-chat-jwt.onrender.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -342,7 +342,7 @@ export default {
         console.log('Enviando mensaje:', { message: texto, user_id: currentUserId });
         
         // Cambiar esta URL por la de tu backend de chat
-        const res = await fetch('https://crm-agent.onrender.com', {
+        const res = await fetch('https://crm-agent.onrender.com/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
